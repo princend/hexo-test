@@ -37,4 +37,4 @@ jobs:
       run: |
         git config --global user.name "${USER_NAME}"
         git config --global user.email "${USER_EMAIL}"
-        npx hexo-deployer-git --repo=https://x-access-token:${PERSONAL_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git --branch=${BRANCH} --message="Site updated: $(date '+%Y-%m-%d %H:%M:%S')" --dir=${PUBLISH_DIR}
+        run: npx hexo deploy
