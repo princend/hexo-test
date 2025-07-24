@@ -3,7 +3,7 @@ name: Deploy Hexo to GitHub Pages
 on:
   push:
     branches:
-      - main  # 或你預設的分支
+      - dev  # 或你預設的分支
 
 jobs:
   build-deploy:
