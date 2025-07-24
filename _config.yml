@@ -107,4 +107,4 @@ deploy:
   branch: main
 
 admin:
-  deployCommand: 'hexo clean && hexo generate && hexo deploy'
+  deployCommand: './hexo-deploy.sh'
