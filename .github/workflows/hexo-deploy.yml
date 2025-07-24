@@ -23,6 +23,11 @@ jobs:
       - name: Build static files
         run: npx hexo generate
 
+      - name: Set git user config
+        run: |
+        git config --global user.name "princend"
+        git config --global user.email "waxdji3g4y3c04@gmail.com"
+
       - name: Deploy to GitHub Pages
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
