@@ -27,9 +27,9 @@ jobs:
         run: |
           git config --global user.name "princend"
           git config --global user.email "waxdji3g4y3c04@gmail.com"
-      - name: 替換 deploy repo 認證
+      - name: Inject token into _config.yml
         run: |
-          sed -i "s|https://github.com/|https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/|g" _config.yml
+          sed -i "s|https://github.com/princend/hexo-test.git|https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/princend/hexo-test.git|g" _config.yml
       - name: Deploy to GitHub Pages
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
