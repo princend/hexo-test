@@ -105,3 +105,6 @@ deploy:
   type: git
   repo: https://github.com/princend/hexo-test.git
   branch: main
+
+admin:
+  deployCommand: 'hexo clean && hexo generate && hexo deploy'
