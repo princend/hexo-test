@@ -1,18 +1,29 @@
-- name: Checkout repository
-  uses: actions/checkout@v3
+name: Deploy Hexo to GitHub Pages
 
-- name: Setup Node.js
-  uses: actions/setup-node@v3
-  with:
-    node-version: "20"
+on:
+  push:
+    branches:
+      - main  # 或你預設的分支
 
-- name: Install dependencies
-  run: npm install
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-- name: Generate static files
-  run: npx hexo generate
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
 
-- name: Deploy to GitHub Pages
-  env:
-    PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-  run: npx hexo deploy
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build static files
+        run: npx hexo generate
+
+      - name: Deploy to GitHub Pages
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: npx hexo deploy
